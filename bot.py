@@ -9,30 +9,24 @@ TOKEN = os.getenv("BOT_TOKEN")
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
-
 @dp.message(CommandStart())
 async def start(message: Message):
     await message.answer(
         "Сәлем! ❤️ Мен MyMiniCartoons ботымын!\n\n"
-        "Мен арқылы болашақта:\n"
-        "🎬 Мультфильм жасай аласың\n"
-        "🖼️ Суретті жандандыра аласың\n"
-        "🎥 Видео жасай аласың\n\n"
-        "Жақында кездескенше!"
+        "🎬 Мультфильм жасау\n"
+        "🖼️ Суретті жандандыру\n"
+        "🎥 Видео жасау\n\n"
+        "Қай функцияны таңдайсың?"
     )
-
 
 @dp.message()
-async def messages(message: Message):
+async def reply(message: Message):
     await message.answer(
-        "Хабарламаңды алдым! ❤️\n"
-        "Жаңа функциялар жақында қосылады."
+        "Керемет! ❤️ Жаңа функциялар жақында қосылады."
     )
-
 
 async def main():
     await dp.start_polling(bot)
-
 
 if __name__ == "__main__":
     asyncio.run(main())
